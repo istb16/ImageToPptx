@@ -57,7 +57,10 @@ namespace ImageToPptx
                 // スライドのサイズを設定
                 pptx.SlideSize.Size = img.Size;
                 // スライドの背景画像を挿入
-                var imageData = pptx.Images.Append(img);
+                using var imageStream = new MemoryStream();
+                img.Save(imageStream, System.Drawing.Imaging.ImageFormat.Png);
+                imageStream.Position = 0;
+                var imageData = pptx.Images.Append(imageStream);
                 pptx.Slides[0].Shapes.AppendEmbedImage(
                     ShapeType.Rectangle,
                     imageData,
