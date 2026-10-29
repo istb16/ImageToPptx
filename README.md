@@ -6,3 +6,9 @@ ImageToPptx.exeへ画像ファイルをドラッグ＆ドロップしてくだ�
 また、コンソール上で下記方法でも実行できます。
 
 > ImageToPptx.exe 画像ファイル名.jpg
+
+## 動作環境
+.NET 10 ランタイム（Windows）が必要です。
+
+## リリース
+`v*` 形式のタグ（例: `v1.0.0`）を push すると GitHub Actions がビルドし、`ImageToPptx.exe` を添付したリリースを作成します。
