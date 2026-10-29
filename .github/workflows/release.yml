@@ -29,7 +29,14 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish
-      run: dotnet publish -p:PublishProfile=FolderProfile
+      env:
+        REF_TYPE: ${{ github.ref_type }}
+        REF_NAME: ${{ github.ref_name }}
+      # タグ（v1.2.3）から exe のバージョンを設定する
+      run: |
+        $versionArgs = @()
+        if ($env:REF_TYPE -eq 'tag') { $versionArgs = @("-p:Version=$($env:REF_NAME.TrimStart('v'))") }
+        dotnet publish -p:PublishProfile=FolderProfile @versionArgs
     - name: Create release
       if: startsWith(github.ref, 'refs/tags/v')
       env:
