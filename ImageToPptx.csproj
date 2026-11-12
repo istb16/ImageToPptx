@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="FreeSpire.Presentation" Version="11.10.0" />
     <PackageReference Include="Svg" Version="3.4.8" />
-    <PackageReference Include="System.Drawing.Common" Version="10.0.14" />
+    <PackageReference Include="System.Drawing.Common" Version="10.0.15" />
   </ItemGroup>
 
 </Project>
